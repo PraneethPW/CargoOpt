@@ -60,3 +60,10 @@ def optimize_packing():
         report_url=f"/api/packing/report/{result.id}",
     )
     return jsonify(resp.dict())
+
+
+@packing_bp.get("/report/<int:result_id>")
+def get_packing_report(result_id: int):
+    """Return the generated PDF report for a given packing result."""
+    result = PackingResult.query.get_or_404(result_id)
+    return send_file(result.report_path, as_attachment=True)

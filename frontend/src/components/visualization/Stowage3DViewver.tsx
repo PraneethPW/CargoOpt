@@ -15,7 +15,7 @@ function ShipHull({ ship }: { ship: ShipInput }) {
         color="#ffffff"
         wireframe
         transparent
-        opacity={0.3}
+        opacity={0.4}
       />
     </mesh>
   );
@@ -49,12 +49,13 @@ function CargoBox({ p }: { p: CargoPlacement }) {
 
 export function Stowage3DViewer({ ship, placements }: Props) {
   const maxDim = Math.max(ship.length, ship.height, ship.width);
-  const cam = maxDim * 2;
+  const cam = maxDim * 1.2;
 
   return (
-    <Canvas camera={{ position: [cam, cam, cam], fov: 50 }}>
-      <ambientLight />
-      <directionalLight position={[10, 20, 10]} />
+    <Canvas camera={{ position: [cam, cam, cam], fov: 40 }}>
+      <color attach="background" args={["#f3f4f6"]} />
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[10, 20, 10]} intensity={0.9} />
       <ShipHull ship={ship} />
       {placements.map((p) => (
         <CargoBox key={p.id} p={p} />

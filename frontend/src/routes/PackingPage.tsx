@@ -23,13 +23,19 @@ export function PackingPage() {
   };
 
   return (
-    <div className="packing-page" style={{ display: "flex", gap: "2rem" }}>
+    <div
+      className="packing-page"
+      style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "2rem" }}
+    >
       <ContainerForm onSubmit={handleSubmit} />
-      <div style={{ flex: 1 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         {loading && <p>Optimizing...</p>}
         {container && result && (
           <>
-            <p>Utilization: {(result.utilization * 100).toFixed(2)}%</p>
+            <p>
+              Utilization: {(result.utilization * 100).toFixed(2)}
+              %
+            </p>
             <a
               href={`http://localhost:5000${result.report_url}`}
               target="_blank"
@@ -37,7 +43,16 @@ export function PackingPage() {
             >
               Download report
             </a>
-            <div style={{ height: "500px", border: "1px solid #ccc" }}>
+            <div
+              style={{
+                flex: 1,
+                minHeight: "500px",
+                border: "1px solid #e5e7eb",
+                borderRadius: "8px",
+                overflow: "hidden",
+                background: "#f3f4f6",
+              }}
+            >
               <Packing3DViewer
                 container={container}
                 placements={result.placements}

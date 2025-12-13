@@ -17,7 +17,7 @@ function ContainerMesh({ container }: { container: ContainerInput }) {
         color="#ffffff"
         wireframe
         transparent
-        opacity={0.3}
+        opacity={0.4}
       />
     </mesh>
   );
@@ -51,12 +51,13 @@ function BoxMesh({ p }: { p: BoxPlacement }) {
 
 export function Packing3DViewer({ container, placements }: Props) {
   const maxDim = Math.max(container.length, container.height, container.width);
-  const cam = maxDim * 2;
+  const cam = maxDim * 1.2;
 
   return (
-    <Canvas camera={{ position: [cam, cam, cam], fov: 50 }}>
-      <ambientLight />
-      <directionalLight position={[10, 20, 10]} />
+    <Canvas camera={{ position: [cam, cam, cam], fov: 40 }}>
+      <color attach="background" args={["#f3f4f6"]} />
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[10, 20, 10]} intensity={0.9} />
       <ContainerMesh container={container} />
       {placements.map((p) => (
         <BoxMesh key={p.id} p={p} />
