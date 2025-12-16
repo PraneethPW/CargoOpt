@@ -8,3 +8,6 @@ SQLAlchemy
 alembic
 pydantic
 reportlab
+gunicorn
+Flask-Migrate
+python-dotenv

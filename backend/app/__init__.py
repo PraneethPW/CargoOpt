@@ -13,7 +13,9 @@ migrate = Migrate()  # Flask-Migrate
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)
+    CORS(app , 
+     resources={r"/api/*": {"origins": ["https://cargodeployement.vercel.app"]}},
+    )
 
     settings = get_settings()
     app.config["SQLALCHEMY_DATABASE_URI"] = settings.database_url
