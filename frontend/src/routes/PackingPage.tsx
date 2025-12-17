@@ -37,7 +37,7 @@ export function PackingPage() {
               %
             </p>
             <a
-              href={`http://localhost:5000${result.report_url}`}
+              href={`https://cargoopt-d0bee956a2ea.herokuapp.com${result.report_url}`}
               target="_blank"
               rel="noreferrer"
             >
