@@ -13,8 +13,13 @@ migrate = Migrate()  # Flask-Migrate
 
 def create_app():
     app = Flask(__name__)
-    CORS(app , 
-     resources={r"/api/*": {"origins": ["https://cargodeployement.vercel.app"]}},
+    CORS(
+        app,
+        resources={r"/api/*": {
+            "origins": ["https://cargodeployement.vercel.app"],
+            "methods": ["GET", "POST", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"],
+        }},
     )
 
     settings = get_settings()
