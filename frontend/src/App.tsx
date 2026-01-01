@@ -12,7 +12,7 @@ export default function App() {
           <Route path="/packing" element={<PackingPage />} />
           <Route path="/stowage" element={<StowagePage />} />
         </Routes>
-      </Layout>
+      </Layout>w
     </BrowserRouter>
   );
 }

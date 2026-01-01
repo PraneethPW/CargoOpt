@@ -35,7 +35,7 @@ export function StowagePage() {
               %
             </p>
             <a
-              href={`https://cargoopt-d0bee956a2ea.herokuapp.com${result.report_url}`}
+              href={`https://cargoopt-production.up.railway.app${result.report_url}`}
               target="_blank"
               rel="noreferrer"
             >
